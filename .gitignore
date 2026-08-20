@@ -23,6 +23,8 @@ tempCodeRunnerFile.py
 # Directories
 __pypackages__/
 __pycache__/
+**/__pypackages__/
+**/__pycache__/
 build/
 develop-eggs/
 dist/
@@ -62,11 +64,24 @@ ENV/
 env.bak/
 venv.bak/
 
+# Tests
+tests/
+test/
+
 # C extensions
 *.so
 
 # Jupyter
 .ipynb_checkpoints
+**/.ipynb_checkpoints
+
+# Other
+temp/
+tmp/
+
+# Text file
+*.txt
+**/*.txt
 
 # dot file
 .*
