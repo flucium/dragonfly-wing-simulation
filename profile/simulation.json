@@ -1,0 +1,47 @@
+{
+  "version": "0.0.1",
+  "target_wing": {
+    "type": "fore",
+    "side": "left",
+    "position_on": {
+      "span_fraction_from_root": 0.5,
+      "chord_fraction_from_leading_edge": 0.5
+    }
+  },
+  "source": {
+    "position_relative_to_target_m": [
+      0.0,
+      0.0,
+      -0.03
+    ],
+    "axis": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "directivity_exponent": 1.0
+  },
+  "drive": {
+    "frequency_hz": 2000.0,
+    "spl_db_at_reference": 100.0,
+    "reference_distance_m": 0.1,
+    "phase_rad": 0.0,
+    "start_time_s": 0.0,
+    "stop_time_s": 0.03,
+    "rise_time_s": 0.002,
+    "fall_time_s": 0.002
+  },
+  "structure": {
+    "model": "cantilever_multimode",
+    "mode_count": 5,
+    "young_modulus_pa": null,
+    "first_natural_frequency_hz": 170.0,
+    "damping_ratio": 0.04
+  },
+  "sampling": {
+    "duration_s": 0.05,
+    "time_step_s": 0.000004,
+    "spanwise_panel_count": 256,
+    "chordwise_panel_count": 8
+  }
+}

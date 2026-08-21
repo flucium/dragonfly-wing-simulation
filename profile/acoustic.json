@@ -1,0 +1,32 @@
+{
+    "version": "0.0.1",
+    "name": "passive buzzer",
+    "electrical": {
+        "frequency_hz": 2000.0,
+        "duty_cycle": 0.50,
+        "supply_voltage_v": 5,
+        "trigger_polarity": "low_level"
+    },
+    "pcb_size": {
+        "vertical_mm": 32,
+        "horizontal_mm": 14,
+        "height_mm": 10,
+        "buzzer_size": {
+            "diameter_mm": 3,
+            "radius_mm": 1.5,
+            "height_mm": 4
+        }
+    },
+    "sound": {
+        "pressure_pa": 20.0e-6,
+        "speed_ms": 343.0
+    },
+    "reference": {
+        "name": "Cytron パッシブブザーモジュール",
+        "product_code": "CYTRON-SO-BUZ-MOD",
+        "url": [
+            "https://www.switch-science.com/products/10643",
+            "https://www.cytron.io/p-passive-buzzer-module"
+        ]
+    }
+}

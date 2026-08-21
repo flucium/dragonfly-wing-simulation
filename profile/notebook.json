@@ -1,0 +1,20 @@
+{
+    "version":"0.0.1",
+    "notebooks":"./notebooks",
+    "notebook_behavior":{
+        "result_storage": "memory_only",
+        "result_storage_path":"null",
+        "write_result_files":false,
+        "show_resolved_profile":true
+    },
+    "acoustic": {
+        "file": "profile/acoustic.json"
+    },
+    "dragonfly":{
+        "file": "profile/dragonfly.json"
+    },
+    "simulation":{
+        "file":"profile/simulation.json"
+    }
+    
+}

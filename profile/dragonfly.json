@@ -1,0 +1,87 @@
+{
+  "version": "0.0.1",
+    "name": "Davidius moiwanus moiwanus",
+  "body": {
+    "geometry_model": "ellipsoid",
+        "length_mm": 41.5,
+        "width_mm": 5.5,
+        "thickness_mm": 4.5,
+        "mass_mg": 350.0
+    },
+    "wing": {
+        "number": 4,
+    "fore_wing": {
+      "length_mm": 28,
+      "width_mm": 7,
+      "thickness_mm": 0.003,
+      "mass_mg": 2.0,
+      "planform_stations": [
+        {"span_fraction": 0.00, "leading_edge_mm": -0.9743, "trailing_edge_mm": 1.1909, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.05, "leading_edge_mm": -1.8982, "trailing_edge_mm": 2.3199, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.10, "leading_edge_mm": -2.4124, "trailing_edge_mm": 2.9485, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.20, "leading_edge_mm": -3.1585, "trailing_edge_mm": 3.8604, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.35, "leading_edge_mm": -3.8368, "trailing_edge_mm": 4.6894, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.50, "leading_edge_mm": -4.0597, "trailing_edge_mm": 4.9618, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.65, "leading_edge_mm": -3.8368, "trailing_edge_mm": 4.6894, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.80, "leading_edge_mm": -3.1585, "trailing_edge_mm": 3.8604, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.90, "leading_edge_mm": -2.4124, "trailing_edge_mm": 2.9485, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.95, "leading_edge_mm": -1.8982, "trailing_edge_mm": 2.3199, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 1.00, "leading_edge_mm": -0.9743, "trailing_edge_mm": 1.1909, "thickness_mm": 0.003, "twist_deg": 0.0}
+      ]
+    },
+        "hind_wing": {
+            "length_mm": 26,
+      "width_mm": 9,
+      "thickness_mm": 0.003,
+      "mass_mg": 2.0,
+      "planform_stations": [
+        {"span_fraction": 0.00, "leading_edge_mm": -1.2528, "trailing_edge_mm": 1.5311, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.05, "leading_edge_mm": -2.4405, "trailing_edge_mm": 2.9829, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.10, "leading_edge_mm": -3.1018, "trailing_edge_mm": 3.7910, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.20, "leading_edge_mm": -4.0610, "trailing_edge_mm": 4.9634, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.35, "leading_edge_mm": -4.9329, "trailing_edge_mm": 6.0291, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.50, "leading_edge_mm": -5.2196, "trailing_edge_mm": 6.3795, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.65, "leading_edge_mm": -4.9329, "trailing_edge_mm": 6.0291, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.80, "leading_edge_mm": -4.0610, "trailing_edge_mm": 4.9634, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.90, "leading_edge_mm": -3.1018, "trailing_edge_mm": 3.7910, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 0.95, "leading_edge_mm": -2.4405, "trailing_edge_mm": 2.9829, "thickness_mm": 0.003, "twist_deg": 0.0},
+        {"span_fraction": 1.00, "leading_edge_mm": -1.2528, "trailing_edge_mm": 1.5311, "thickness_mm": 0.003, "twist_deg": 0.0}
+      ]
+    }
+  },
+  "wing_instances": {
+    "fore_right": {
+      "wing_type": "fore",
+      "side": "right",
+      "root_position_body_mm": [4.8, 2.6, 0.0],
+      "root_orientation_body_euler_xyz_deg": [0.0, 0.0, 12.0]
+    },
+    "fore_left": {
+      "wing_type": "fore",
+      "side": "left",
+      "root_position_body_mm": [4.8, -2.6, 0.0],
+      "root_orientation_body_euler_xyz_deg": [0.0, 0.0, -12.0]
+    },
+    "hind_right": {
+      "wing_type": "hind",
+      "side": "right",
+      "root_position_body_mm": [-4.8, 2.6, 0.0],
+      "root_orientation_body_euler_xyz_deg": [0.0, 0.0, -12.0]
+    },
+    "hind_left": {
+      "wing_type": "hind",
+      "side": "left",
+      "root_position_body_mm": [-4.8, -2.6, 0.0],
+      "root_orientation_body_euler_xyz_deg": [0.0, 0.0, 12.0]
+    }
+  },
+    "reference": {
+        "scientific_name": "Davidius moiwanus moiwanus",
+        "japanese_name": "モイワサナエ",
+        "url": [
+            "https://war.wikipedia.org/wiki/Davidius_moiwanus",
+            "https://www.hkd.mlit.go.jp/ob/tisui/kds/pamphlet/ikimono/pdf/ctll1r0000004shxmoiwasanae.pdf",
+            "https://www.odonata.jp/03imago/Gomphidae/Davidius/moiwanus_moiwanus/index.html"
+        ]
+    }
+}
