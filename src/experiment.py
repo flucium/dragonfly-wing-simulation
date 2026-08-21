@@ -62,6 +62,8 @@ class PointSourceSpec:
 
     directivity_exponent: float = 0.0
 
+    illumination_scope: str = "all_wings"
+
 
 @dataclass(frozen=True)
 class SamplingSpec:
@@ -307,7 +309,7 @@ def experiment_spec_from_profile(bundle: ProfileBundle) -> ExperimentSpec:
     return ExperimentSpec(
         vibration=VibrationSpec(structure.damping_ratio,structure.first_natural_frequency_hz,structure.young_modulus_pa,FIRST_MODE_MASS_RATIO,structure.mode_count),
 
-        source=PointSourceSpec(bundle.source_position_m,spl_to_pressure_rms(drive.spl_db_at_reference,profile.acoustics.reference_sound_pressure_pa),drive.reference_distance_m,drive.phase_rad,simulation.source.axis,simulation.source.directivity_exponent),
+        source=PointSourceSpec(bundle.source_position_m,spl_to_pressure_rms(drive.spl_db_at_reference,profile.acoustics.reference_sound_pressure_pa),drive.reference_distance_m,drive.phase_rad,simulation.source.axis,simulation.source.directivity_exponent,simulation.source.illumination_scope),
 
         sampling=SamplingSpec(sampling.duration_s,sampling.time_step_s,sampling.spanwise_panel_count,sampling.chordwise_panel_count),
 

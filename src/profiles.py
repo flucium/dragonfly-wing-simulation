@@ -154,6 +154,8 @@ class Profiles:
 
             directivity_exponent: float
 
+            illumination_scope: str
+
             @property
             def surface_normal(self) -> Vector3:
 
@@ -695,6 +697,16 @@ def _decode_simulation_json(document: dict[str, Any]) -> Profiles.Simulation:
             source, "directivity_exponent", f"{location}.source"
         )
 
+    illumination_scope = source.get("illumination_scope", "all_wings")
+
+    if not isinstance(illumination_scope, str):
+        raise ValueError("simulation.source.illumination_scope must be a string")
+
+    if illumination_scope not in {"target_wing", "all_wings"}:
+        raise ValueError(
+            "simulation.source.illumination_scope must be 'target_wing' or 'all_wings'"
+        )
+
     stop_value = drive.get("stop_time_s")
 
     stop_time = None
@@ -750,6 +762,7 @@ def _decode_simulation_json(document: dict[str, Any]) -> Profiles.Simulation:
             ),
             axis=normal,
             directivity_exponent=directivity_exponent,
+            illumination_scope=illumination_scope,
         ),
         drive=Profiles.Simulation.Drive(
             frequency_hz=_positive_number(

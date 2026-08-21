@@ -45,6 +45,8 @@ class WingExperimentResult:
 
     is_selected: bool
 
+    is_illuminated: bool
+
     @property
     def acoustic_force_rms_phasor_body_n(self) -> ComplexVector3:
 
@@ -193,6 +195,19 @@ def run_whole_dragonfly_experiment(bundle: ProfileBundle,spec: ExperimentSpec) -
     wing_results = []
 
     for wing in bundle.wings:
+        is_selected = (
+            wing.wing_type == bundle.wing.wing_type and wing.side == bundle.wing.side
+        )
+
+        if spec.source.illumination_scope not in {"target_wing", "all_wings"}:
+            raise ValueError(
+                "source illumination_scope must be 'target_wing' or 'all_wings'"
+            )
+
+        is_illuminated = (
+            spec.source.illumination_scope == "all_wings" or is_selected
+        )
+
         source_position_local = body_to_wing_local(wing,source_position_body)
 
         source_axis_local = (
@@ -211,7 +226,11 @@ def run_whole_dragonfly_experiment(bundle: ProfileBundle,spec: ExperimentSpec) -
             wing,
             _modes_for_wing(bundle,spec,wing),
             source_position_m=source_position_local,
-            reference_pressure_rms_pa=spec.source.pressure_rms_pa_at_reference_distance,
+            reference_pressure_rms_pa=(
+                spec.source.pressure_rms_pa_at_reference_distance
+                if is_illuminated
+                else 0.0
+            ),
             frequency_hz=spec.frequency_hz,
             reference_distance_m=spec.source.reference_distance_m,
             sound_speed_m_s=spec.sound_speed_m_s,
@@ -228,10 +247,6 @@ def run_whole_dragonfly_experiment(bundle: ProfileBundle,spec: ExperimentSpec) -
             n_chord=spec.sampling.n_chord,
         )
 
-        is_selected = (
-            wing.wing_type == bundle.wing.wing_type and wing.side == bundle.wing.side
-        )
-
         wing_results.append(
             WingExperimentResult(
                 wing=wing,
@@ -241,6 +256,7 @@ def run_whole_dragonfly_experiment(bundle: ProfileBundle,spec: ExperimentSpec) -
                 source_position_local_m=source_position_local,
                 source_axis_local=source_axis_local,
                 is_selected=is_selected,
+                is_illuminated=is_illuminated,
             )
         )
 

@@ -309,7 +309,11 @@ def _draw(axis: Any,bundle: ProfileBundle,result: SimulationResult | WholeDragon
     axis.add_collection3d(Poly3DCollection(buzzer_faces,facecolor="tab:orange",alpha=0.85,linewidth=0.2,edgecolor="0.25"))
 
     if isinstance(result, WholeDragonflySimulationResult):
-        output_positions = tuple(wing_result.output_position_body_m for wing_result in result.wings)
+        output_positions = tuple(
+            wing_result.output_position_body_m
+            for wing_result in result.wings
+            if wing_result.is_illuminated
+        )
 
         source_position = result.source_position_body_m
 
