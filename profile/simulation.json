@@ -19,7 +19,8 @@
       0.0,
       1.0
     ],
-    "directivity_exponent": 1.0
+    "directivity_exponent": 1.0,
+    "illumination_scope": "target_wing"
   },
   "drive": {
     "frequency_hz": 2000.0,
