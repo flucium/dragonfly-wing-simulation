@@ -13,7 +13,6 @@ from .wing_surface import multimode_deformed_wing_surface,wing_surface_mesh,wing
 
 
 __all__ = [
-    "animate_dragonfly_3d",
     "animate_whole_dragonfly_3d",
     "plot_dragonfly_3d",
     "plot_whole_dragonfly_3d",
@@ -405,53 +404,6 @@ def plot_dragonfly_3d(bundle: ProfileBundle,result: SimulationResult | None = No
     figure.subplots_adjust(left=0.03,right=0.90,bottom=0.10,top=0.88)
 
     return figure
-
-
-def animate_dragonfly_3d(bundle: ProfileBundle,result: SimulationResult,*,deformation_scale: Real = 1.0,frame_step: int = 1,interval_ms: Real = 33.0) -> Any:
-
-    if not isinstance(bundle, ProfileBundle):
-        raise TypeError("bundle must be a ProfileBundle")
-
-    _sample_index(result, 0)
-
-    scale = _positive_number(deformation_scale, "deformation_scale")
-
-    step = _positive_integer(frame_step, "frame_step")
-
-    interval = _positive_number(interval_ms, "interval_ms")
-
-    try:
-        from matplotlib.animation import FuncAnimation
-
-    except ImportError as exc:
-        raise RuntimeError("visualization requires matplotlib; install it before animating") from exc
-
-    plt = _pyplot()
-
-    frame_indices = tuple(range(0, len(result.time_s), step))
-
-    if frame_indices[-1] != len(result.time_s) - 1:
-        frame_indices += (len(result.time_s) - 1,)
-
-    figure = plt.figure(figsize=(10, 7))
-
-    figure.subplots_adjust(left=0.03,right=0.90,bottom=0.10,top=0.88)
-
-    axis = figure.add_subplot(111, projection="3d")
-
-    def update(frame_number: int) -> tuple[Any, ...]:
-
-        index = frame_indices[frame_number]
-
-        axis.clear()
-
-        _draw(axis,bundle,result,index,scale)
-
-        axis.set_title(f"t = {result.time_s[index]:.6g} s, selected wing deformation = {scale:g}x",pad=16)
-
-        return tuple(axis.collections) + tuple(axis.lines)
-
-    return FuncAnimation(figure,update,frames=len(frame_indices),interval=interval,blit=False)
 
 
 def plot_whole_dragonfly_3d(bundle: ProfileBundle,result: WholeDragonflySimulationResult,*,sample_index: int = -1,deformation_scale: Real = 1.0) -> Any:
